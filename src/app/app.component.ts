@@ -6,16 +6,14 @@ import { UserService } from './service/user.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'ang-basic-practice003-comp-pipe';
 
   userList: User[] = this.userService.list;
 
-  constructor(
-    private userService: UserService,
-  ) {}
+  constructor(private userService: UserService) {}
 
   /**
    * FELADAT!
@@ -26,6 +24,7 @@ export class AppComponent {
    * @param user {User} - egy felhasználó
    * @returns {void}
    */
-
-
+  onDeleteUser(user: User): void {
+    this.userService.removeUser(user);
+  }
 }
